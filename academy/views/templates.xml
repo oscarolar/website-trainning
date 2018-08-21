@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <template id="index">
+        <t t-call="website.layout">
+            <t t-set='title'>Academy</t>
+            <div class="oe_structure">
+                <div class="container">
+                    <t t-foreach="teachers" t-as="teacher">
+                        <p><a t-attf-href="/academy/{{ slug(teacher) }}">
+                            <t t-esc="teacher.name"/></a>
+                        </p>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+    <template id="biography">
+        <t t-call="website.layout">
+            <t t-set="title">Academy </t>
+            <div class="oe_structure"/>
+            <div class="oe_structure">
+                <div class="container">
+                    <h3 t-field="person.name"/>
+                    <p>Last modified: <i t-field="person.write_date" t-options="{'widget': 'relative'}"/></p>
+                </div>
+                <div t-field="person.biography"/>
+            </div>
+            <div class="oe_structure"/>
+        </t>
+    </template>
+    <template id="products_item" inherit_id="website_sale.products_item">
+        <xpath expr="//h5" position="after">
+            <p t-esc="product.id"></p>
+        </xpath> 
+        <xpath expr="//h5" position="attributes">
+            <attribute name="class" add="col-md-12" separator=" "/>
+        </xpath>         
+    </template>
+    <template id="layout" inherit_id="website.layout">
+        <xpath expr="//t[@t-set='head_website']" position="inside">
+            <t t-set="global_categs" t-value="env['product.public.category'].search([('parent_id','=', False)])"/>
+        </xpath>
+    </template>
+</odoo>
