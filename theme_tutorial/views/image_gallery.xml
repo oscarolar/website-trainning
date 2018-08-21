@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="client" model="ir.attachment">
+        <field name="name">Client</field>
+        <field name="type">url</field>
+        <field name="url">/theme_tutorial/static/src/img/client.png</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="bf" model="ir.attachment">
+        <field name="name">bf</field>
+        <field name="type">url</field>
+        <field name="url">/theme_tutorial/static/src/img/bf.jpeg</field>
+        <field name="public" eval="True"/>
+    </record>
+</odoo>

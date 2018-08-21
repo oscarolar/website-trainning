@@ -29,7 +29,6 @@ class WebsiteSaleInh(WebsiteSale):
 
     @http.route()
     def shop(self, page=0, category=None, search='', ppg=False, **post):
-        print ("Inherits Correctly");
         res = super(WebsiteSaleInh, self).shop(
             page=page,
             category=category,

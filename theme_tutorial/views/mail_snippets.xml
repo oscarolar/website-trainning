@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_bf_header" name="BF Header">
+        <div class="o_mail_block_header_social">
+            <div class="o_mail_snippet_general">
+                <table align="center" cellspacing="0" cellpading="0" border="0" class="o_mail_table_styles">
+                    <tr>
+                       <td width="70%" class="o_mail_logo_container o_mail_h_padding o_mail_v_padding">
+                        <a t-att-href="(company_id.website) or '#'">
+                            <img src="/web/image/theme_tutorial.bf" alt=""/>
+                        </a>
+                       </td> 
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </template>
+    <template id="email_designer_snippets" inherit_id="mass_mailing.email_designer_snippets">
+        <xpath expr="//div[@id='email_designer_default_headers']/div[hasclass('o_panel_body')]" position="inside">
+            <t t-snippet="theme_tutorial.s_bf_header" t-thumbnail="/theme_tutorial/static/src/img/bf_thumbnail.png"/>
+        </xpath>
+    </template>
+</odoo>
