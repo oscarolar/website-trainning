@@ -1,7 +1,7 @@
 import odoo.tests
 
 
-@odoo.tests.common.at_install(True)
+@odoo.tests.common.at_install(False)
 @odoo.tests.common.post_install(True)
 class TestUiTeachers(odoo.tests.HttpCase):
 
