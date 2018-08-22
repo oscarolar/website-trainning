@@ -7,6 +7,7 @@ odoo.define('academy.demo_rpc', function(require){
     require('web.dom_ready');
     
     var RpcButton = Widget.extend({
+        // self :this,
         events: {
             'click .rpc-button': 'onClick'
         },
@@ -17,14 +18,12 @@ odoo.define('academy.demo_rpc', function(require){
         onClick: function (ev){
             console.log('Clicked');
             rpc.query({
-                model: 'academy.teachers',
-                method: 'search_read',
-                args: [[['id', '=', this.$el.data('teacher-id')]], ['biography']],
-            }).then(function(data){
-                if(data.length){
-                    // console.log(data);
-                    $('.biography').html(data[0].biography);
+                route: '/academy/search_teacher',
+                params: {
+                    teacher_id: this.$el.data('teacher-id')
                 }
+            }).then(function(teachers_found){
+                $('.biography').html(teachers_found[0].biography);
             });
         },
     });
