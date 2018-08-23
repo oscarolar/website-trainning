@@ -2,9 +2,11 @@
 <odoo>
     <template id="assets_backend" inherit_id="web.assets_backend">
         <xpath expr="." position="inside">
-            <link href="/web_widget_color/static/src/less/widget.less" rel="stylesheet"/>
             <script src="/web_widget_color/static/lib/jscolor/jscolor.js" type="text/javascript"/>
             <script src="/web_widget_color/static/src/js/widget.js" type="text/javascript"/>
+        </xpath>
+        <xpath expr="//link[last()]" position="after">
+            <link href="/web_widget_color/static/src/less/widget.less" rel="stylesheet"/>
         </xpath>
     </template>
 </odoo>
