@@ -5,3 +5,4 @@ class Teachers(models.Model):
 
     name = fields.Char()
     biography = fields.Html()
+    color = fields.Char()

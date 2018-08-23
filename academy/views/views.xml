@@ -13,6 +13,7 @@
             <form>
                 <sheet>
                     <label for="name"></label><field name="name"/>
+                    <label for="color"></label><field name="color" widget="color"/>
                     <br/>
                     <label for="biography"></label>
                     <field name="biography" widget="html"/>
