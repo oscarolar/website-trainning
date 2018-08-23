@@ -5,6 +5,7 @@
     'version': '11.0',
     'depends': ['website_sale',],
     'data': [
+        'data/website_academy_data.xml',
         'views/assets.xml',
         'views/templates.xml',
         'views/views.xml',

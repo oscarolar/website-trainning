@@ -12,6 +12,7 @@
                             </a>
                         </p>
                     </t>
+                    <t t-call="academy.teachers_form"/>
                     <div class="biography">
                     </div>
                 </div>
@@ -45,4 +46,65 @@
             <t t-set="global_categs" t-value="env['product.public.category'].search([('parent_id','=', False)])"/>
         </xpath>
     </template>
+    <template id="teachers_form" name="Submit New Teacher">
+        <div>
+            <form
+            action="/website_form/"
+            method="post" 
+            data-model_name='academy.teachers'
+            data-success_page="/success_teachers"
+            class="s_website_form form-horizontal container-fluid mt32"
+            enctype="multipart/form-data"
+            data-editable-form="false">
+                <div class="form-group form-field o_website_form_required_custom">
+                    <label for="name" class="col-md-3 control-label">Teacher Name</label>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control o_website_form_input" name="name" required="" t-att-value="user_id.name"/>
+                    </div>
+                </div>
+                <div class="form-group form-field o_website_form_required_custom">
+                    <label for="something" class="col-md-3 control-label">Teacher something</label>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control o_website_form_input" name="something" required=""/>
+                    </div>
+                </div>
+                <div class="form-group form-field o_website_form_required_custom">
+                    <label for="otro" class="col-md-3 control-label">Teacher otro</label>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control o_website_form_input" name="otro" required=""/>
+                    </div>
+                </div>
+            <div class="form-group">
+                <div class="col-md-offset-3 col-md-7">
+                    <span class="btn btn-primary btn-lg o_website_form_send">Create Teacher</span>
+                    <span id="o_website_form_result"></span>
+                </div>
+            </div>
+            </form>
+        </div>
+    </template>
+    <record id="success_teachers" model="website.page">
+        <field name="name">Success, teacher created!</field>
+        <field name="type">qweb</field>
+        <field name="url">/success_teachers</field>
+        <field name="website_published" eval="True"/>
+        <field name="key">academy.success_teachers</field>
+        <field name="arch" type="xml">
+            <t name="Teacher successfully created" t-name="academy.success_teachers">
+                <t t-call="website.layout">
+                    <div class="wrap">
+                        <div class="oe_structure">
+                            <div class="container">
+                                <h1>Teacher Successfully Created</h1>
+                                <p>Please go back to the teachers page to see the result</p>
+                            </div>
+                            <div class="col-md-4">
+                                <t t-call="website.company_description"/>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
 </odoo>

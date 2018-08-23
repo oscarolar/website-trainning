@@ -6,3 +6,4 @@ class Teachers(models.Model):
     name = fields.Char()
     biography = fields.Html()
     color = fields.Char()
+    birth_date = fields.Date()
